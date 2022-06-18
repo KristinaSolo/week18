@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЗАМЕТКИ</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 30%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .text {
+            padding: 20px;
+
+        }
+
+
+        #btn,
+        #btn2 {
+            width: 200px;
+            height: 50px;
+            border-color: brown;
+            border-radius: 10px;
+            background-color: rgb(130, 63, 63);
+            color: beige;
+            font-size: 12pt;
+        }
+
+        input:required:valid {
+            border: 3px solid rgb(220, 147, 220);
+
+        }
+
+        textarea:required:valid {
+            border: 4px solid rgb(205, 231, 140);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <input id="data" type="date" required>
+        </div>
+        <textarea id="text" cols="30" rows="10" maxlength="300" placeholder="поле ввода" required></textarea>
+        <div>
+            <button id="btn">Создать заметку</button>
+        </div>
+
+        <div class="text"></div>
+    </div>
+    <script src="./scpipt.js">
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam</title>
+    <style>
+        .text {
+
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <input id="avatar" type="text" placeholder="Введите URL картинки">
+    </div>
+    <div>
+        <input type="text" id="name" name="name" placeholder="Имя">
+    </div>
+    <textarea id="message" cols="30" rows="10"></textarea>
+    <div>
+        <button id="btn">Отправить</button>
+        <button id="btn2" onclick="cleanInput()">Очистить</button>
+    </div>
+    <div>
+        <img id="image" src="http://hypeava.ru/uploads/posts/2019-12/1577353255_5.jpg" alt="avatar" width="5%">
+    </div>
+    <div class="text"> </div>
+
+
+    <script>
+        let text = document.querySelector('.text');
+        let btn = document.querySelector('#btn');
+        let img = document.querySelector('#image');
+        let avatar = document.querySelector('#avatar');
+
+        document.addEventListener("DOMContentLoaded", function (event) { // на загрузку странице имя остается и текст
+            let name = localStorage.getItem('name');
+            let mes = localStorage.getItem('message');
+            if (name != null) {
+                document.querySelector('#name').value = name;
+            }
+        })
+
+        btn.addEventListener('click', () => {
+            let nameInput = document.querySelector('#name').value; // проверка если имя уже есть
+            if (localStorage.getItem('name') == null) {
+
+                localStorage.setItem('name', nameInput)
+            }
+            text.innerHTML += nameInput;
+
+
+            let message = document.querySelector("#message").value;
+            let add = [];
+            if (message.search(/viagra/i) || message.search(/xxx/i)) { //проверка на слова
+
+                let comment1 = message.replace(/viagra/gi, '***');
+                let comment2 = comment1.replace(/xxx/gi, '***');
+
+                add.push(`<p>${comment2}</p>`);
+            } else {
+                add.push(`<p>${message}</p>`);
+            }
+            text.innerHTML += add;
+
+        })
+
+        avatar.addEventListener('change', updateImageUrl);
+
+        function updateImageUrl() { // замена аватарки
+            let imageUrl = avatar.value;
+            img.setAttribute('src', imageUrl)
+
+        }
+
+        function cleanInput() { //очистка
+            text.innerHTML = '';
+            document.querySelector("#message").value = '';
+
+        }
+    </script>
+</body>
+
+</html>

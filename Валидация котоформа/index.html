@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Котиков</title>
+    <style>
+        .cat {
+            width: 20%;
+        }
+
+        input:required:valid {
+            border-color: rgb(58, 213, 61);
+        }
+
+        .forma {
+            width: 20vw;
+        }
+    </style>
+    <script src="./style.js"></script>
+</head>
+
+<body>
+    <h2>Опросник для обладателей котиков.</h2>
+
+    <img class="cat" src="./6ff77967363c8b99e2a4174afe1be508.jpg" alt="cat">
+    <form class="forma">
+        <fieldset>
+            <legend>Контакты владельца:</legend>
+
+            <label for="text">Имя :</label>
+            <input type="text" id="text" required placeholder="Имя"><br>
+            <label for="adres">Email :</label>
+            <input type="email" required placeholder="Email">
+            <label for="contact">Телефон :</label>
+            <input type="text" id="contact" placeholder="+79264455755" required pattern="\+7\[0-9]\[0-9]\[0-9]\[0-9]"
+                minlength="10" maxlength="20" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Информация о котике:</legend>
+
+            <div>
+                <label for="nickname">Кличка питомца:</label>
+                <input type="text" id="nickname" required placeholder="Кличка питомца">
+            </div>
+
+            <div>Порода питомца:
+                <select>
+                    <option>Сиамская</option>
+                    <option>Сфинкс</option>
+                    <option>Сибирская</option>
+                    <option>Британская вислоухая</option>
+                    <option>Шотландская вислоухая</option>
+                    <option>Персидская</option>
+                </select>
+            </div>
+
+            <div>Чем питается питомец:<br>
+                <input type="checkbox">Сухой корм<br> <input type="checkbox">Влажный корм<br> <input
+                    type="checkbox">Натуральный
+                корм
+            </div>
+
+            <div>
+                <label for="text">Какого пола питомец:</label><br>
+                Самец <input type="radio" name="sex" required> Самка <input type="radio" name="sex" required>
+
+            </div>
+        </fieldset>
+        <div>Коментарии владельца:
+            <div>
+                <textarea cols="40" rows="10" maxlength="200"> </textarea>
+            </div>
+
+        </div>
+
+        <div>
+            <label for="pfoto">Приложите фото питомца:</label><br>
+            <input type="file" id="pfoto">
+        </div>
+
+        <div>
+            <button onclick="clikMe()"> Сохранить</button>
+        </div>
+    </form>
+</body>
+
+</html>
